@@ -12,16 +12,16 @@
 
  :root {
   /* colors */
-  --background-color: white;
+  --background-color: #F5F5F5;
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --link-color: #2ECC71; /* Mint Green */
+  --link-hover-color: #00C78C; /* Medium Spring */
 
   /* fonts */
-  --body-font-family: 'Inter', sans-serif; /* Updated to use Inter */
-  --heading-font-family: 'Inter', sans-serif; /* Updated to use Inter */
+  --body-font-family: 'Plus Jakarta Sans', sans-serif;
+  --heading-font-family: 'Plus Jakarta Sans', sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -40,36 +40,6 @@
   --nav-height: 64px;
   --breadcrumbs-height: 34px;
   --header-height: var(--nav-height);
-}
-
-/* fallback fonts */
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/Inter-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* section fade-in */
-div.section {
-  opacity: 1;
 }
 
 /* Media query for larger screens */
@@ -92,17 +62,12 @@ div.section {
 
 /* Body styling */
 body {
-  display: none;
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
-}
-
-body.appear {
-  display: block;
 }
 
 header {
@@ -240,7 +205,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   padding: 0 24px;
 }
