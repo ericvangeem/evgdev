@@ -16,6 +16,15 @@
   color: var(--background-color);
 }
 
+.hero h1::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 15%);
+  z-index: -1;
+  border-radius: 8px;
+}
+
 .hero picture {
   position: absolute;
   z-index: -1;
@@ -28,6 +37,61 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+/* Blog-specific hero styles */
+body.blog .hero-container {
+  margin-bottom: var(--blog-spacing-large);
+}
+
+body.blog .hero-container .hero {
+  text-align: center;
+  padding: var(--blog-spacing-medium) 0;
+}
+
+body.blog .hero h1 {
+  margin-bottom: var(--blog-spacing-small);
+  max-width: var(--blog-content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.blog .hero img {
+  box-shadow: 0 8px 32px rgba(46, 204, 113, 15%);
+  margin-bottom: var(--blog-spacing-medium);
+}
+
+/* Hero wrapper should be full bleed for blog */
+body.blog main .hero-wrapper {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body.blog main .hero-wrapper > div {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Reading time display - can be in hero outside main */
+body.blog .reading-time {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+}
+
+body.blog .reading-time small {
+  background-color: var(--light-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  border: 1px solid rgba(46, 204, 113, 20%);
 }
 
 @media (width >= 900px) {
