@@ -1,0 +1,73 @@
+/* Image block styles for blog */
+body.blog .image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--blog-spacing-medium) 0;
+  max-width: 50% !important; /* Make image narrower than body text */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.blog .image-wrapper .image {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body.blog .image-wrapper .image-container {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+body.blog .image-wrapper picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+body.blog .image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.1);
+}
+
+body.blog .image-wrapper .image-caption {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--dark-color);
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  body.blog .image-wrapper {
+    max-width: 95%; /* Allow more width on mobile */
+  }
+  
+  body.blog .image-wrapper .image-caption {
+    font-size: 0.85em;
+  }
+}
+
+/* Print styles */
+@media print {
+  body.blog .image-wrapper {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+  
+  body.blog .image-wrapper img {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+} 
