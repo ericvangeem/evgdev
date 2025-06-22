@@ -20,7 +20,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 15%);
+  background: rgb(0 0 0 / 15%);
   z-index: -1;
   border-radius: 8px;
 }
@@ -57,7 +57,7 @@ body.blog .hero h1 {
 }
 
 body.blog .hero img {
-  box-shadow: 0 8px 32px rgba(46, 204, 113, 15%);
+  box-shadow: 0 8px 32px rgb(46 204 113 / 15%);
   margin-bottom: var(--blog-spacing-medium);
 }
 
@@ -91,7 +91,7 @@ body.blog .reading-time small {
   padding: 0.5rem 1rem;
   border-radius: 20px;
   display: inline-block;
-  border: 1px solid rgba(46, 204, 113, 20%);
+  border: 1px solid rgb(46 204 113 / 20%);
 }
 
 @media (width >= 900px) {
