@@ -4,7 +4,7 @@ body.blog .image-wrapper {
   flex-direction: column;
   align-items: center;
   margin: var(--blog-spacing-medium) 0;
-  max-width: 50% !important; /* Make image narrower than body text */
+  max-width: 95%; /* Default for mobile */
   margin-left: auto;
   margin-right: auto;
 }
@@ -56,6 +56,13 @@ body.blog .image-wrapper .image-caption {
   
   body.blog .image-wrapper .image-caption {
     font-size: 0.85em;
+  }
+}
+
+/* Desktop styles */
+@media (width > 768px) {
+  body.blog .image-wrapper {
+    max-width: 50% !important; /* Make image narrower than body text on desktop only */
   }
 }
 
