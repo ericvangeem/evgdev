@@ -4,7 +4,6 @@ body.blog .image-wrapper {
   flex-direction: column;
   align-items: center;
   margin: var(--blog-spacing-medium) 0;
-  max-width: 95%; /* Default for mobile */
   margin-left: auto;
   margin-right: auto;
 }
