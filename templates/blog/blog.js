@@ -28,7 +28,7 @@ function initSmoothScrolling(main) {
   main.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         const headerHeight = document.querySelector('header')?.offsetHeight || 0;
         const targetPosition = target.offsetTop - headerHeight - 20;
