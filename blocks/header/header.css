@@ -1,9 +1,12 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: rgb(30 41 59 / 95%);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
   width: 100%;
   z-index: 2;
   position: fixed;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 20%);
 }
 
 header nav {
@@ -19,6 +22,7 @@ header nav {
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
+  transition: all 0.2s ease;
 }
 
 header nav[aria-expanded='true'] {
@@ -69,11 +73,16 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
+  background-color: transparent;
   color: inherit;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  transition: all 0.2s ease;
+}
+
+header nav .nav-hamburger button:hover {
+  color: var(--link-color);
 }
 
 header nav .nav-hamburger-icon,
@@ -143,6 +152,11 @@ header .nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  transition: all 0.2s ease;
+}
+
+header .nav-brand:hover {
+  color: var(--link-color);
 }
 
 header nav .nav-brand img {
@@ -172,14 +186,21 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Nested list items must come before hover styles to fix specificity */
+header nav .nav-sections ul > li > ul > li {
+  font-weight: 400;
+  padding: 8px 0;
+}
+
+header nav .nav-sections ul > li:hover {
+  color: var(--link-color);
 }
 
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
-}
-
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 400;
 }
 
 @media (width >= 900px) {
@@ -244,6 +265,9 @@ header nav .nav-sections ul > li > ul > li {
     top: 150%;
     padding: 16px;
     background-color: var(--light-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px -4px rgb(0 0 0 / 40%);
     white-space: initial;
     z-index: 1;
   }
@@ -287,6 +311,7 @@ header .breadcrumbs {
   padding: 0 24px;
   font-size: var(--body-font-size-xs);
   overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
 }
 
 header .breadcrumbs ol {
