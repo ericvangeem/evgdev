@@ -52,8 +52,6 @@ body.blog main h3 {
 
 body.blog main p {
   margin-bottom: 1.5rem;
-  text-align: justify;
-  text-justify: inter-word;
 }
 
 /* Enhanced code blocks for blog - scoped to main */
