@@ -28,8 +28,8 @@
   --error-color: #F87171;
 
   /* fonts */
-  --body-font-family: 'Plus Jakarta Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
-  --heading-font-family: 'Plus Jakarta Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
+  --body-font-family: 'Plus Jakarta Sans', sans-serif;
+  --heading-font-family: 'Plus Jakarta Sans', sans-serif;
   --code-font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
 
   /* body sizes */
@@ -78,8 +78,13 @@ body {
   font-size: var(--body-font-size-m);
   line-height: 1.7;
   font-weight: 400;
+  display: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body.appear {
+  display: unset;
 }
 
 /* Mobile-specific body font size */
