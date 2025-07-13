@@ -41,7 +41,7 @@ body.blog .image-wrapper .image-caption {
   margin-bottom: 0;
   text-align: center;
   font-size: 0.9em;
-  color: var(--dark-color);
+  color: var(--text-secondary);
   font-style: italic;
   line-height: 1.5;
   max-width: 100%;

@@ -5,29 +5,41 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 60px 24px;
+  min-height: 400px;
+  margin: 0 24px 24px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 25%);
+  overflow: hidden;
+}
+
+/* Fallback background for heroes without images */
+.hero:not(:has(picture)) {
+  background: linear-gradient(135deg, var(--background-color) 0%, var(--light-color) 100%);
 }
 
 .hero h1 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--background-color);
+  color: #FFF !important;
+  background: none !important;
+  -webkit-text-fill-color: #FFF !important;
+  position: relative;
+  z-index: 1;
 }
 
-.hero h1::before {
+.hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 15%);
-  z-index: -1;
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 10%));
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
@@ -57,7 +69,6 @@ body.blog .hero h1 {
 }
 
 body.blog .hero img {
-  box-shadow: 0 8px 32px rgb(46 204 113 / 15%);
   margin-bottom: var(--blog-spacing-medium);
 }
 
@@ -81,6 +92,7 @@ body.blog main .hero-wrapper > div {
 /* Reading time display - can be in hero outside main */
 body.blog .reading-time {
   text-align: center;
+  position: relative;
   margin-top: 1rem;
   color: var(--dark-color);
   font-size: var(--body-font-size-s);
@@ -91,7 +103,9 @@ body.blog .reading-time small {
   padding: 0.5rem 1rem;
   border-radius: 20px;
   display: inline-block;
-  border: 1px solid rgb(46 204 113 / 20%);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  font-weight: 500;
 }
 
 @media (width >= 900px) {

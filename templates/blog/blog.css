@@ -1,14 +1,17 @@
 /*
  * Blog-specific styles for Edge Delivery Services
- * Designed to work with mint green theme and Plus Jakarta Sans font
+ * Modern Dark Tech Theme with Blues and Purples
  */
 
 /* Blog-specific CSS variables */
 body.blog {
   --blog-content-max-width: 1000px;
-  --blog-spacing-large: 3rem;
-  --blog-spacing-medium: 2rem;
+  --blog-spacing-large: 4rem;
+  --blog-spacing-medium: 2.5rem;
   --blog-spacing-small: 1.5rem;
+  --blog-quote-color: #60A5FA;
+  --blog-highlight-bg: rgba(59, 130, 246, 0.1);
+  --blog-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Blog content layout - scoped to main, excluding hero */
@@ -24,14 +27,27 @@ body.blog main .default-content-wrapper {
 body.blog main h2 {
   margin-top: var(--blog-spacing-large);
   margin-bottom: var(--blog-spacing-small);
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--light-color);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-color);
+  position: relative;
+}
+
+body.blog main h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--link-color), var(--accent-color));
 }
 
 body.blog main h3 {
   margin-top: var(--blog-spacing-medium);
   margin-bottom: 1rem;
-  color: var(--dark-color);
+  color: var(--link-color);
+  font-weight: 600;
 }
 
 body.blog main p {
@@ -40,23 +56,39 @@ body.blog main p {
 
 /* Enhanced code blocks for blog - scoped to main */
 body.blog main pre {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border: 1px solid #dee2e6;
-  border-left: 4px solid var(--link-color);
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
   margin: var(--blog-spacing-small) 0;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 14px;
-  line-height: 1.5;
+  font-family: var(--code-font-family);
+  font-size: 15px;
+  line-height: 1.6;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+  position: relative;
+  overflow: hidden;
+}
+
+body.blog main pre::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
 }
 
 body.blog main code:not(pre code) {
-  background-color: rgba(46, 204, 113, 0.1);
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  font-size: 0.9em;
-  color: var(--link-color);
-  font-weight: 600;
-  border: 1px solid rgba(46, 204, 113, 0.2);
+  background-color: rgba(167, 139, 250, 0.15);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  color: var(--accent-color);
+  font-weight: 500;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  font-family: var(--code-font-family);
+  line-height: 1;
+  vertical-align: baseline;
 }
 
 /* Enhanced lists for blog - scoped to main */
@@ -77,35 +109,55 @@ body.blog main li strong {
 
 /* Blockquotes for blog - scoped to main */
 body.blog main blockquote {
-  border-left: 4px solid var(--link-color);
+  border-left: 4px solid var(--accent-color);
   margin: var(--blog-spacing-medium) 0;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem;
   background-color: var(--light-color);
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 12px 12px 0;
   font-style: italic;
   position: relative;
+  box-shadow: var(--blog-shadow);
+  border: 1px solid var(--border-color);
 }
 
 body.blog main blockquote::before {
   content: '"';
   font-size: 4rem;
-  color: var(--link-color);
+  color: var(--blog-quote-color);
   position: absolute;
   top: -10px;
   left: 10px;
-  opacity: 0.3;
+  opacity: 0.4;
+  font-weight: 700;
 }
 
 /* Links in blog content - scoped to main */
 body.blog main .default-content-wrapper a:any-link {
   font-weight: 600;
   border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 body.blog main .default-content-wrapper a:hover {
   border-bottom-color: var(--link-hover-color);
   text-decoration: none;
+  color: var(--link-hover-color);
+}
+
+body.blog main .default-content-wrapper a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--link-color), var(--accent-color));
+  transition: width 0.2s ease;
+}
+
+body.blog main .default-content-wrapper a:hover::after {
+  width: 100%;
 }
 
 /* Blog metadata and tags area - scoped to main */
@@ -127,28 +179,30 @@ body.blog::before {
   left: 0;
   width: var(--progress-width, 0%);
   height: 3px;
-  background: linear-gradient(90deg, var(--link-color), var(--link-hover-color));
+  background: linear-gradient(90deg, var(--link-color), var(--accent-color));
   z-index: 1;
   transition: width 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Copy code button - scoped to main */
 body.blog main .copy-code-button {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: var(--link-color);
-  color: white;
+  top: 12px;
+  right: 12px;
+  background: var(--accent-color);
+  color: var(--text-color);
   border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
+  border-radius: 6px;
+  padding: 6px 12px;
   font-size: 12px;
   font-family: var(--body-font-family);
   font-weight: 600;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
   z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 body.blog main pre:hover .copy-code-button {
@@ -156,11 +210,13 @@ body.blog main pre:hover .copy-code-button {
 }
 
 body.blog main .copy-code-button:hover {
-  background: var(--link-hover-color);
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 body.blog main .copy-code-button.copied {
-  background: #27AE60;
+  background: var(--success-color);
 }
 
 /* Improved spacing for blog sections - scoped to main */
@@ -174,10 +230,16 @@ body.blog main > .section:last-of-type {
 
 /* Enhanced images in blog content - scoped to main */
 body.blog main .default-content-wrapper img {
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(46, 204, 113, 0.1);
+  border-radius: 12px;
+  box-shadow: var(--blog-shadow);
   margin: var(--blog-spacing-small) 0;
-  border: 1px solid rgba(46, 204, 113, 0.1);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.blog main .default-content-wrapper img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 /* Table of contents styling - scoped to main */

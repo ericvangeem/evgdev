@@ -11,30 +11,39 @@
  */
 
  :root {
-  /* colors */
-  --background-color: #F5F5F5;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #2ECC71; /* Mint Green */
-  --link-hover-color: #00C78C; /* Medium Spring */
+  /* Balanced Dark Tech Theme Colors */
+  --background-color: #1E293B;
+  --light-color: #334155;
+  --dark-color: #64748B;
+  --text-color: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --link-color: #60A5FA; /* Bright but not harsh blue */
+  --link-hover-color: #93C5FD; /* Lighter blue */
+  --accent-color: #A78BFA; /* Softer purple */
+  --accent-hover: #C4B5FD;
+  --border-color: #475569;
+  --code-bg: #0F172A;
+  --success-color: #34D399;
+  --warning-color: #FBBF24;
+  --error-color: #F87171;
 
   /* fonts */
   --body-font-family: 'Plus Jakarta Sans', sans-serif;
   --heading-font-family: 'Plus Jakarta Sans', sans-serif;
+  --code-font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 34px;
-  --heading-font-size-l: 27px;
-  --heading-font-size-m: 25px;
-  --heading-font-size-s: 22px;
-  --heading-font-size-xs: 20px;
+  --heading-font-size-xxl: 48px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-l: 30px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
 
   /* nav heights */
   --nav-height: 64px;
@@ -46,17 +55,17 @@
 @media (width >= 900px) {
   :root {
     /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
+    --body-font-size-m: 19px;
+    --body-font-size-s: 17px;
+    --body-font-size-xs: 15px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 34px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xxl: 56px;
+    --heading-font-size-xl: 42px;
+    --heading-font-size-l: 32px;
+    --heading-font-size-m: 26px;
+    --heading-font-size-s: 22px;
+    --heading-font-size-xs: 20px;
   }
 }
 
@@ -67,13 +76,21 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-weight: 400;
+  display: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.appear {
+  display: unset;
 }
 
 /* Mobile-specific body font size */
 @media (width < 900px) {
   body {
-    font-size: var(--body-font-size-s);
+    font-size: var(--body-font-size-m);
   }
 }
 
@@ -83,16 +100,28 @@ header {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
   font-family: var(--heading-font-family);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.2;
   scroll-margin: 40px;
+  letter-spacing: -0.025em;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
+h1 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-xxl);
+  background: linear-gradient(135deg, var(--link-color) 0%, var(--accent-color) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
@@ -111,15 +140,44 @@ blockquote {
 
 code,
 pre {
+  font-family: var(--code-font-family);
   font-size: var(--body-font-size-s);
 }
 
 pre {
-  padding: 16px;
-  border-radius: 8px;
-  background-color: var(--light-color);
+  padding: 24px;
+  border-radius: 12px;
+  background-color: var(--code-bg);
   overflow-x: auto;
   white-space: pre;
+  border: 1px solid var(--border-color);
+  position: relative;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 15%);
+}
+
+pre code {
+  color: var(--text-color);
+  background: none;
+  padding: 0;
+  border: none;
+  font-weight: 400;
+}
+
+@media (width < 900px) {
+  code,
+  pre {
+    font-size: var(--body-font-size-xs);
+  }
+} 
+
+code:not(pre code) {
+  background-color: var(--code-bg);
+  color: var(--accent-color);
+  padding: 0.125em 0.25em;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9em;
+  border: 1px solid var(--border-color);
 }
 
 main > div {
@@ -138,11 +196,17 @@ a:any-link {
   color: var(--link-color);
   text-decoration: none;
   word-break: break-word;
+  transition: all 0.2s ease;
 }
 
 a:hover {
   color: var(--link-hover-color);
   text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 /* Buttons */
@@ -153,33 +217,35 @@ button {
   max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  border-radius: 8px;
+  padding: 0.75em 1.5em;
   font-family: var(--body-font-family);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background: linear-gradient(135deg, var(--link-color) 0%, var(--accent-color) 100%);
+  color: var(--text-color);
   cursor: pointer;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 15%);
+}
+
+.header .nav-hamburger button {
+  background: none;
 }
 
 a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background: linear-gradient(135deg, var(--link-hover-color) 0%, var(--accent-hover) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -2px rgb(0 0 0 / 25%);
   cursor: pointer;
-}
-
-button:disabled,
-button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
 }
 
 a.button.secondary,
