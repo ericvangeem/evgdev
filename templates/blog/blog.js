@@ -123,7 +123,7 @@ function addReadingTime(main) {
   if (!content) return;
 
   const text = content.textContent || content.innerText || '';
-  const wordsPerMinute = 200;
+  const wordsPerMinute = 120;
   const wordCount = text.trim().split(/\s+/).length;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
 
