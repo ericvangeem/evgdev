@@ -85,7 +85,7 @@ body {
 /* Mobile-specific body font size */
 @media (width < 900px) {
   body {
-    font-size: var(--body-font-size-s);
+    font-size: var(--body-font-size-m);
   }
 }
 
@@ -158,6 +158,13 @@ pre code {
   font-weight: 400;
 }
 
+@media (width < 900px) {
+  code,
+  pre {
+    font-size: var(--body-font-size-xs);
+  }
+} 
+
 code:not(pre code) {
   background-color: var(--code-bg);
   color: var(--accent-color);
@@ -220,6 +227,10 @@ button {
   white-space: nowrap;
   transition: all 0.2s ease;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 15%);
+}
+
+.header .nav-hamburger button {
+  background: none;
 }
 
 a.button:hover,
