@@ -1,3 +1,5 @@
+import { getMetadata } from '../../scripts/aem.js';
+
 /**
  * Blog-specific JavaScript functionality
  * Designed to work with the mint green theme and Plus Jakarta Sans font
@@ -117,7 +119,7 @@ function enhanceExternalLinks(main) {
   });
 }
 
-// Calculate and display estimated reading time
+// Calculate and display estimated reading time and publication date
 function addReadingTime(main) {
   const content = main.querySelector('.default-content-wrapper');
   if (!content) return;
@@ -129,14 +131,32 @@ function addReadingTime(main) {
 
   // Hero might be outside main, so check document first, then main
   const hero = document.querySelector('.hero') || main.querySelector('.hero');
-  if (hero && readingTime > 0) {
-    // Check if reading time already exists
-    if (hero.querySelector('.reading-time')) return;
+  if (hero) {
+    // Add publication date
+    const publicationMeta = getMetadata('publication-date');
+    if (publicationMeta) {
+      const publicationDateElement = document.createElement('div');
 
-    const readingTimeElement = document.createElement('div');
-    readingTimeElement.className = 'reading-time';
-    readingTimeElement.innerHTML = `<small>${readingTime} min read</small>`;
-    hero.appendChild(readingTimeElement);
+      // Format the date nicely
+      const date = new Date(publicationMeta);
+      const formattedDate = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+
+      publicationDateElement.className = 'post-info';
+      publicationDateElement.innerHTML = `<small>${formattedDate}</small>`;
+      hero.appendChild(publicationDateElement);
+    }
+
+    // Add reading time if it doesn't exist and we have content
+    if (readingTime > 0) {
+      const readingTimeElement = document.createElement('div');
+      readingTimeElement.className = 'post-info';
+      readingTimeElement.innerHTML = `<small>${readingTime} min read</small>`;
+      hero.appendChild(readingTimeElement);
+    }
   }
 }
 
