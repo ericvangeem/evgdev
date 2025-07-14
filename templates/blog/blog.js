@@ -136,15 +136,15 @@ function addReadingTime(main) {
     const publicationMeta = getMetadata('publication-date');
     if (publicationMeta) {
       const publicationDateElement = document.createElement('div');
-      
+
       // Format the date nicely
       const date = new Date(publicationMeta);
       const formattedDate = date.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
-        day: 'numeric'
+        day: 'numeric',
       });
-      
+
       publicationDateElement.className = 'post-info';
       publicationDateElement.innerHTML = `<small>${formattedDate}</small>`;
       hero.appendChild(publicationDateElement);
