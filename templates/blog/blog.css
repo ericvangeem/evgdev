@@ -171,6 +171,28 @@ body.blog main .blog-meta {
   color: var(--dark-color);
 }
 
+/* Reading time and publication date container - scoped to hero */
+body.blog .hero .post-info {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+}
+
+body.blog .hero .post-info:last-child,
+body.blog .hero .publication-date:last-child {
+  margin-right: 0;
+}
+
+body.blog .hero .publication-date {
+  font-style: italic;
+}
+
+body.blog .hero .post-info small,
+body.blog .hero .publication-date small {
+  font-size: inherit;
+}
+
 /* Reading progress indicator - page level */
 body.blog::before {
   content: '';

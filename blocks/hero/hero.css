@@ -90,7 +90,7 @@ body.blog main .hero-wrapper > div {
 }
 
 /* Reading time display - can be in hero outside main */
-body.blog .reading-time {
+body.blog .post-info {
   text-align: center;
   position: relative;
   margin-top: 1rem;
@@ -98,7 +98,7 @@ body.blog .reading-time {
   font-size: var(--body-font-size-s);
 }
 
-body.blog .reading-time small {
+body.blog .post-info small {
   background-color: var(--light-color);
   padding: 0.5rem 1rem;
   border-radius: 20px;
