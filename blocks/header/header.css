@@ -23,6 +23,7 @@ header nav {
   padding: 0 24px;
   font-family: var(--body-font-family);
   transition: all 0.2s ease;
+  overflow: hidden;
 }
 
 header nav[aria-expanded='true'] {
@@ -45,7 +46,7 @@ header nav[aria-expanded='true'] {
 
   header nav[aria-expanded='true'] {
     min-height: 0;
-    overflow: visible;
+    overflow: hidden;
   }
 }
 
@@ -160,7 +161,7 @@ header .nav-brand:hover {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 96px;
   height: auto;
 }
 
