@@ -1,3 +1,5 @@
+import { getMetadata } from '../../scripts/aem.js';
+
 /**
  * Blog-specific JavaScript functionality
  * Designed to work with the mint green theme and Plus Jakarta Sans font
@@ -131,12 +133,12 @@ function addReadingTime(main) {
   const hero = document.querySelector('.hero') || main.querySelector('.hero');
   if (hero) {
     // Add publication date
-    const publicationMeta = document.querySelector('meta[name="publication-date"]');
-    if (publicationMeta && publicationMeta.content) {
+    const publicationMeta = getMetadata('publication-date');
+    if (publicationMeta) {
       const publicationDateElement = document.createElement('div');
       
       // Format the date nicely
-      const date = new Date(publicationMeta.content);
+      const date = new Date(publicationMeta);
       const formattedDate = date.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
