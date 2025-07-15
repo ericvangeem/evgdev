@@ -121,12 +121,17 @@ function enhanceExternalLinks(main) {
 
 // Calculate and display estimated reading time and publication date
 function addReadingTime(main) {
-  const content = main.querySelector('.default-content-wrapper');
-  if (!content) return;
+  const contentElements = main.querySelectorAll('.default-content-wrapper');
+  if (!contentElements.length) return;
 
-  const text = content.textContent || content.innerText || '';
-  const wordsPerMinute = 120;
-  const wordCount = text.trim().split(/\s+/).length;
+  // Collect text from all content elements
+  let allText = '';
+  contentElements.forEach((element) => {
+    allText += (element.textContent || element.innerText || '') + ' ';
+  });
+
+  const wordsPerMinute = 200;
+  const wordCount = allText.trim().split(/\s+/).length;
   const readingTime = Math.ceil(wordCount / wordsPerMinute);
 
   // Hero might be outside main, so check document first, then main
