@@ -64,6 +64,10 @@ body.blog .image-wrapper .image-caption {
     max-width: 50% !important; /* Make image narrower than body text on desktop only */
   }
 
+  body.blog .image-wrapper .image.block.w90 img {
+    max-width: 90% !important;
+  }
+
   body.blog .image-wrapper .image.block.w80 img {
     max-width: 80% !important;
   }
