@@ -127,7 +127,7 @@ function addReadingTime(main) {
   // Collect text from all content elements
   let allText = '';
   contentElements.forEach((element) => {
-    allText += (element.textContent || element.innerText || '') + ' ';
+    allText += `${element.textContent || element.innerText || ''} `;
   });
 
   const wordsPerMinute = 200;

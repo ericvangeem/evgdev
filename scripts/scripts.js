@@ -154,6 +154,15 @@ function decorateSections(main) {
   });
 }
 
+function decorateLinks(main) {
+  const links = main.querySelectorAll('a');
+  links.forEach((link) => {
+    if (link.innerText.includes('aem.live')) {
+      link.href = link.innerText.replace(/#_eds$/, '');
+    }
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -167,15 +176,6 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateLinks(main);
-}
-
-function decorateLinks(main) {
-  const links = main.querySelectorAll('a');
-  links.forEach((link) => {
-    if (link.innerText.includes('aem.live')) {
-      link.href = link.innerText.replace(/#_eds$/, '');
-    }
-  });
 }
 
 async function decorateTemplates(main) {

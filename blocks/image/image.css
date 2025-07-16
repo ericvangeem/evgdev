@@ -63,6 +63,22 @@ body.blog .image-wrapper .image-caption {
   body.blog .image-wrapper {
     max-width: 50% !important; /* Make image narrower than body text on desktop only */
   }
+
+  body.blog .image-wrapper .image.block.w80 img {
+    max-width: 80% !important;
+  }
+
+  body.blog .image-wrapper .image.block.w70 img {
+    max-width: 70% !important;
+  }
+
+  body.blog .image-wrapper .image.block.w60 img {
+    max-width: 60% !important;
+  }
+
+  body.blog .image-wrapper .image.block.w50 img {
+    max-width: 50% !important;
+  }
 }
 
 /* Print styles */
