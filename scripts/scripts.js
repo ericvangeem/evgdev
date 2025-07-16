@@ -166,6 +166,16 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateLinks(main);
+}
+
+function decorateLinks(main) {
+  const links = main.querySelectorAll('a');
+  links.forEach((link) => {
+    if (link.innerText.includes('aem.live')) {
+      link.href = link.innerText.replace(/#_eds$/, '');
+    }
+  });
 }
 
 async function decorateTemplates(main) {
