@@ -98,26 +98,7 @@ function addCodeCopyButtons(main) {
   });
 }
 
-// Enhance external links
-function enhanceExternalLinks(main) {
-  main.querySelectorAll('a[href^="http"]').forEach((link) => {
-    if (!link.hostname.includes(window.location.hostname)) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-      link.setAttribute('aria-label', `${link.textContent} (opens in new tab)`);
 
-      // Add subtle external link indicator
-      if (!link.querySelector('.external-icon')) {
-        const icon = document.createElement('span');
-        icon.className = 'external-icon';
-        icon.innerHTML = ' ↗';
-        icon.style.fontSize = '0.8em';
-        icon.style.opacity = '0.7';
-        link.appendChild(icon);
-      }
-    }
-  });
-}
 
 // Calculate and display estimated reading time and publication date
 function addReadingTime(main) {
@@ -243,7 +224,6 @@ function decorate(main) {
   // Initialize main-scoped features
   initSmoothScrolling(main);
   addCodeCopyButtons(main);
-  enhanceExternalLinks(main);
   addReadingTime(main);
   improveFocusManagement(main);
 

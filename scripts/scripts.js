@@ -89,6 +89,27 @@ function autolinkModals(doc) {
   });
 }
 
+// Enhance external links
+function enhanceExternalLinks(main) {
+  main.querySelectorAll('a[href^="http"]').forEach((link) => {
+    if (!link.hostname.includes(window.location.hostname)) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+      link.setAttribute('aria-label', `${link.textContent} (opens in new tab)`);
+
+      // Add subtle external link indicator
+      if (!link.querySelector('.external-icon')) {
+        const icon = document.createElement('span');
+        icon.className = 'external-icon';
+        icon.innerHTML = ' ↗';
+        icon.style.fontSize = '0.8em';
+        icon.style.opacity = '0.7';
+        link.appendChild(icon);
+      }
+    }
+  });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -161,6 +182,8 @@ function decorateLinks(main) {
       link.href = link.innerText.replace(/#_eds$/, '');
     }
   });
+  
+  enhanceExternalLinks(main);
 }
 
 /**
