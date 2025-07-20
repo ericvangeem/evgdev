@@ -1,0 +1,27 @@
+
+body.blog-landing .hero-wrapper {
+  max-width: 1200px;
+}
+
+body.blog-landing .hero {
+  min-height: 200px;
+}
+
+@media (width <= 768px) {
+  body.blog-landing .hero h1 {
+    font-size: 28px;
+  }
+}
+
+
+
+@media (width <= 768px) {
+  body.blog-landing .hero {
+    min-height: 100px;
+    margin: 0;
+  }
+
+  body.blog-landing .hero h1 {
+    font-size: 28px;
+  }
+}

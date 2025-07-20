@@ -28,13 +28,20 @@
   z-index: 1;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgb(0 0 0 / 30%), rgb(0 0 0 / 10%));
+.hero h1 {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #FFF !important;
+  background: none !important;
+  -webkit-text-fill-color: #FFF !important;
+  position: relative;
   z-index: 1;
-  pointer-events: none;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgb(0 0 0 / 70%), rgb(0 0 0 / 60%)) !important;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
 }
 
 .hero picture {

@@ -204,7 +204,7 @@ export function decorateMain(main) {
 async function decorateTemplates(main) {
   try {
     const template = toClassName(getMetadata('template'));
-    const templates = ['blog'];
+    const templates = ['blog', 'blog-landing'];
 
     if (templates.includes(template)) {
       const mod = await import(`../templates/${template}/${template}.js`);

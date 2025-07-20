@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 32px;
 }
 
@@ -14,6 +14,12 @@
   overflow: hidden;
   box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cards > ul > li:hover {
@@ -23,6 +29,10 @@
 
 .cards .cards-card-body {
   margin: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cards .cards-card-body h3 {
@@ -37,17 +47,55 @@
   margin-bottom: 16px;
 }
 
+/* Remove button styling from links inside cards */
+.cards .cards-card-body a.button {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: var(--text-color) !important;
+  font-weight: 600 !important;
+  font-size: var(--heading-font-size-s) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  white-space: normal !important;
+}
+
+.cards .cards-card-body a.button:hover {
+  background: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  color: var(--link-hover-color) !important;
+  text-decoration: underline !important;
+}
+
 .cards .cards-card-image {
   line-height: 0;
 }
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
 .cards > ul > li:hover img {
   transform: scale(1.05);
+}
+
+/* Make the entire card a clickable link */
+.cards > ul > li > a {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cards > ul > li > a:hover {
+  text-decoration: none;
+  color: inherit;
 }
