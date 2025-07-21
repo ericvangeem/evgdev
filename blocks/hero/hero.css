@@ -38,7 +38,7 @@
   position: relative;
   z-index: 1;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, rgb(0 0 0 / 70%), rgb(0 0 0 / 60%)) !important;
+  background: linear-gradient(135deg, rgb(0 0 0 / 35%), rgb(0 0 0 / 40%)) !important;
   border-radius: 8px;
   display: inline-block;
   box-shadow: 0 4px 12px rgb(0 0 0 / 30%);

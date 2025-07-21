@@ -31,3 +31,9 @@
     order: unset;
   }
 }
+
+@media (width <= 768px) {
+  .columns > div > .columns-img-col:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}

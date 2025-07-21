@@ -60,7 +60,7 @@
     --body-font-size-xs: 15px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 56px;
+    --heading-font-size-xxl: 54px;
     --heading-font-size-xl: 42px;
     --heading-font-size-l: 32px;
     --heading-font-size-m: 26px;
@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-top: 1em;
-  font-size: var(--heading-font-size-xxl);
+  font-size: var(--heading-font-size-xl);
   background: linear-gradient(135deg, var(--link-color) 0%, var(--accent-color) 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;

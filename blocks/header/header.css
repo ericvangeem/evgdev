@@ -190,6 +190,12 @@ header nav .nav-sections ul > li {
   transition: all 0.2s ease;
 }
 
+@media (width < 900px) {
+  header nav[aria-expanded='true'] .nav-sections ul > li {
+    margin-top: 24px;
+  }
+}
+
 /* Nested list items must come before hover styles to fix specificity */
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;

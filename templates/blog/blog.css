@@ -23,9 +23,6 @@ body.blog main .default-content-wrapper {
   line-height: 1.7;
 }
 
-body.blog main h1 {
-  margin-top: 0;
-}
 
 body.blog main h2 {
   margin-top: var(--blog-spacing-large);
