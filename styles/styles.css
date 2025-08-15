@@ -153,6 +153,7 @@ pre {
   border: 1px solid var(--border-color);
   position: relative;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 15%);
+  overflow-x: auto;
 }
 
 pre code {

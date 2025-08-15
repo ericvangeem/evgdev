@@ -65,7 +65,6 @@ body.blog main pre {
   line-height: 1.6;
   box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
   position: relative;
-  overflow: hidden;
 }
 
 body.blog main pre::before {
