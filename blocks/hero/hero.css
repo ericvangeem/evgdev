@@ -58,6 +58,10 @@
   height: 100%;
 }
 
+.hero.fill img {
+  object-fit: fill;
+}
+
 /* Blog-specific hero styles */
 body.blog .hero-container {
   margin-bottom: var(--blog-spacing-large);
