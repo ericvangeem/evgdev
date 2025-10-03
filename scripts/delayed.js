@@ -1,4 +1,9 @@
 (function() {
+  // Only execute if the domain is ericvangeem.dev
+  if (window.location.hostname !== 'ericvangeem.dev') {
+    return;
+  }
+
   // Load the GTM script asynchronously
   var gtmScript = document.createElement('script');
   gtmScript.async = true;
