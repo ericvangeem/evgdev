@@ -105,10 +105,12 @@ function addReadingTime(main) {
   const contentElements = main.querySelectorAll('.default-content-wrapper');
   if (!contentElements.length) return;
 
-  // Collect text from all content elements
+  // Collect text from all content elements, excluding <pre> elements
   let allText = '';
   contentElements.forEach((element) => {
-    allText += `${element.textContent || element.innerText || ''} `;
+    const clone = element.cloneNode(true);
+    clone.querySelectorAll('pre').forEach((pre) => pre.remove());
+    allText += `${clone.textContent || clone.innerText || ''} `;
   });
 
   const wordsPerMinute = 200;
