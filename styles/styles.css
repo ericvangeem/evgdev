@@ -153,7 +153,6 @@ pre {
   border: 1px solid var(--border-color);
   position: relative;
   box-shadow: 0 2px 4px -1px rgb(0 0 0 / 15%);
-  overflow-x: auto;
 }
 
 pre code {
@@ -208,6 +207,27 @@ a:hover {
 a:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
+}
+
+/* Anchor links that jump within the same page */
+a[href^="#"]:not([href="#"]) {
+  color: var(--accent-color);
+  border-bottom: 1px dashed color-mix(in srgb, var(--accent-color) 50%, transparent);
+  text-decoration: none;
+}
+
+a[href^="#"]:not([href="#"])::after {
+  content: ' ↓';
+  font-size: 0.75em;
+  opacity: 0.7;
+  vertical-align: middle;
+}
+
+a[href^="#"]:not([href="#"]):hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+  border-bottom-style: solid;
+  text-decoration: none;
 }
 
 /* Buttons */
