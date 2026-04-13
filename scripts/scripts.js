@@ -178,9 +178,10 @@ function decorateSections(main) {
 function decorateLinks(main) {
   const links = main.querySelectorAll('a');
   links.forEach((link) => {
-    if (link.innerText.includes('aem.live')) {
-      link.href = link.innerText.replace(/#_eds$/, '');
-    }
+    if (!link.href.endsWith('#_eds')) return;
+    const source = link.title || link.href;
+    link.href = source.replace(/#_eds$/, '');
+    if (link.title) link.title = link.title.replace(/#_eds$/, '');
   });
   
   enhanceExternalLinks(main);

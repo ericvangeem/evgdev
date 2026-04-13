@@ -139,7 +139,8 @@ function addReadingTime(main) {
     }
 
     // Add reading time if it doesn't exist and we have content
-    if (readingTime > 0) {
+    const readTimeMeta = getMetadata('read-time');
+    if (readingTime > 0 && readTimeMeta !== 'off') {
       const readingTimeElement = document.createElement('div');
       readingTimeElement.className = 'post-info';
       readingTimeElement.innerHTML = `<small>${readingTime} min read</small>`;

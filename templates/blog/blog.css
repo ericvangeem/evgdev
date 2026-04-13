@@ -159,6 +159,34 @@ body.blog main .default-content-wrapper a:hover::after {
   width: 100%;
 }
 
+/* In-page anchor links */
+body.blog main .default-content-wrapper a[href^="#"]:not([href="#"]):any-link {
+  color: var(--accent-color);
+  border-bottom: 1px dashed color-mix(in srgb, var(--accent-color) 50%, transparent);
+}
+
+body.blog main .default-content-wrapper a[href^="#"]:not([href="#"])::after {
+  content: ' ↓';
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+  font-size: 0.75em;
+  opacity: 0.7;
+  transition: none;
+}
+
+body.blog main .default-content-wrapper a[href^="#"]:not([href="#"]):hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+  border-bottom-style: solid;
+}
+
+body.blog main .default-content-wrapper a[href^="#"]:not([href="#"]):hover::after {
+  width: auto;
+  background: none;
+}
+
 /* Blog metadata and tags area - scoped to main */
 body.blog main .blog-meta {
   border-top: 1px solid var(--light-color);
