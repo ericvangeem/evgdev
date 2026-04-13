@@ -182,7 +182,7 @@ function decorateLinks(main) {
       link.href = link.innerText.replace(/#_eds$/, '');
     }
   });
-  
+
   enhanceExternalLinks(main);
 }
 

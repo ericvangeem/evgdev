@@ -12,7 +12,7 @@
   background-color: var(--light-color);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
   transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
@@ -23,7 +23,7 @@
 
 .cards > ul > li:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
 }
 
 .cards .cards-card-body {
@@ -58,10 +58,23 @@
   background-color: var(--border-color);
 }
 
+/* Make the entire card a clickable link */
+.cards > ul > li > a {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .cards .cards-card-body h3 a {
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.2s ease;
+}
+
+.cards > ul > li > a:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 .cards .cards-card-body h3 a:hover {
@@ -124,19 +137,6 @@
   transform: scale(1.02);
 }
 
-/* Make the entire card a clickable link */
-.cards > ul > li > a {
-  display: block;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.cards > ul > li > a:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
 /* Date styling */
 .cards .cards-card-body p strong {
   color: var(--text-secondary);
@@ -147,7 +147,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .cards > ul {
     grid-template-columns: 1fr;
     grid-gap: 24px;

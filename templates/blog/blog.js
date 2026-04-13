@@ -98,8 +98,6 @@ function addCodeCopyButtons(main) {
   });
 }
 
-
-
 // Calculate and display estimated reading time and publication date
 function addReadingTime(main) {
   const contentElements = main.querySelectorAll('.default-content-wrapper');
@@ -255,7 +253,6 @@ function observeContentChanges(main) {
         if (hasNewContent) {
           // Re-run specific initialization functions
           addCodeCopyButtons(main);
-          enhanceExternalLinks(main);
         }
       }
     });

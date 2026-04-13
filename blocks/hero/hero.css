@@ -22,18 +22,6 @@
   margin-left: auto;
   margin-right: auto;
   color: #FFF !important;
-  background: none !important;
-  -webkit-text-fill-color: #FFF !important;
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #FFF !important;
-  background: none !important;
   -webkit-text-fill-color: #FFF !important;
   position: relative;
   z-index: 1;
