@@ -1,0 +1,53 @@
+indices:
+  products:
+    include:
+      - /products/product-detail/**
+    target: /products/query-index.json
+    properties:
+      title:
+        select: main h1:first-of-type
+        value: |
+          textContent(el)
+      description:
+        select: head > meta[name="description"]
+        value: |
+          attribute(el, 'content')
+      image:
+        select: head > meta[property="og:image"]
+        value: |
+          attribute(el, 'content')
+      productId:
+        select: head > meta[name="product-id"]
+        value: |
+          attribute(el, 'content')
+      sku:
+        select: head > meta[name="sku"]
+        value: |
+          attribute(el, 'content')
+      category:
+        select: head > meta[name="category"]
+        value: |
+          attribute(el, 'content')
+      price:
+        select: head > meta[name="price"]
+        value: |
+          attribute(el, 'content')
+      currency:
+        select: head > meta[name="currency"]
+        value: |
+          attribute(el, 'content')
+      color:
+        select: head > meta[name="color"]
+        value: |
+          attribute(el, 'content')
+      rating:
+        select: head > meta[name="rating"]
+        value: |
+          attribute(el, 'content')
+      stockQuantity:
+        select: head > meta[name="stock-quantity"]
+        value: |
+          attribute(el, 'content')
+      lastModified:
+        value: |
+          parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY HH:mm:ss [GMT]')
