@@ -1,7 +1,10 @@
 export default function decorate(block) {
-  const [identityRow, specRow, skuRow] = [...block.children];
+  const [imageRow, identityRow, specRow, skuRow] = [...block.children];
 
   block.classList.add('product-details-card');
+
+  const [imageCell] = imageRow ? imageRow.children : [];
+  if (imageCell) imageCell.classList.add('product-details-image');
 
   const [titleCell, categoryCell] = identityRow ? identityRow.children : [];
   if (titleCell) titleCell.classList.add('product-details-title');

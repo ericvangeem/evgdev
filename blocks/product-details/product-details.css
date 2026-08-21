@@ -18,6 +18,19 @@
   margin-top: 24px;
 }
 
+.product-details-image {
+  margin: -32px -32px 0;
+}
+
+.product-details-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
 .product-details-title {
   margin: 0;
 }

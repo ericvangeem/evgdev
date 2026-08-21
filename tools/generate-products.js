@@ -44,7 +44,7 @@ const catKeys = Object.keys(categories);
 const rows = [];
 const skuCounters = {};
 
-for (let i = 1; i <= rowCount; i++) {
+for (let i = 1; i <= rowCount; i += 1) {
   const category = pick(catKeys);
   const noun = pick(categories[category]);
   const adjective = pick(adjectives);
@@ -59,10 +59,11 @@ for (let i = 1; i <= rowCount; i++) {
   const inStock = stock > 0 ? 'true' : 'false';
   const productId = `PRD-${String(i).padStart(4, '0')}`;
   const productPath = `/products/product-detail/${sku.toLowerCase()}`;
-  rows.push([productId, name, category, price, currency, stock, sku, color, rating, inStock, productPath].join(','));
+  const imageUrl = `https://picsum.photos/seed/${sku.toLowerCase()}/640/480`;
+  rows.push([productId, name, category, price, currency, stock, sku, color, rating, inStock, productPath, imageUrl].join(','));
 }
 
-const header = 'product_id,name,category,price,currency,stock_quantity,sku,color,rating,in_stock,path';
+const header = 'product_id,name,category,price,currency,stock_quantity,sku,color,rating,in_stock,path,image_url';
 const csv = `${header}\n${rows.join('\n')}\n`;
 
 const resolvedOutputPath = path.resolve(process.cwd(), outputPath);
