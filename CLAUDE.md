@@ -48,7 +48,7 @@ EDS pages boot through a three-phase loader, kicked off by `loadPage()` in `scri
 Each block under `blocks/{name}/` is self-contained:
 - `{name}.js` — exports a `decorate(block)` function, invoked by `decorateBlocks` (`scripts/aem.js`). Import shared utilities from `../../scripts/aem.js`.
 - `{name}.css` — scoped styling.
-- `_{name}.json` (optional) — the block's authoring definition + model fields, merged into the root `component-*.json` files at build time (see above). This is what makes the block appear/configurable in the DA authoring UI.
+- `_{name}.json` — **do not add this for new blocks.** Older blocks (e.g. `hero`, `cards`) have one; it's the Universal Editor authoring definition/model, merged into the root `component-*.json` files at build time. This project doesn't support Universal Editor, so new blocks (e.g. `product-details`) intentionally omit it.
 
 ### Templates
 
@@ -60,6 +60,16 @@ Each block under `blocks/{name}/` is self-contained:
 - At the bottom of `scripts/scripts.js`, `?dapreview` on the URL loads `da.live`'s live-preview script and re-runs `loadPage` on content changes (this is what makes in-browser DA authoring preview work without a full reload). `?daexperiment` loads DA's experimentation plugin. `NX_ORIGIN` switches between `da.live` and a local DA dev server (`?nx=local`) for testing DA-side plugin changes against this site.
 - `scripts/sidekick.js` is lazy-loaded only after the `aem-sidekick` element exists or fires `sidekick-ready`, wiring up the AEM Sidekick extension.
 
+### JSON2HTML product pages
+
+`json2html/` contains a Mustache template (`product-detail.html`) and service config (`config.json`) for Adobe's json2html worker, which renders individual product pages (`/products/product-detail/{sku}`) server-side from the published `/products/data.json` sheet, filtered by matching `path`. The template is a full EDS page document (doctype/head/body, not a bare fragment) emitting the `product-details` block markup plus per-field `<meta>` tags and a Schema.org `Product` JSON-LD block. The exact request-routing/wiring mechanism (how `aem.live` forwards matching requests to the worker) hasn't been fully confirmed for this project — see the `json2html` config docs at aem.live before assuming it works like a live proxy.
+
+### Content indexing
+
+`helix-query.yaml` (repo root) defines a `products` index over `/products/product-detail/**`, published to `/products/query-index.json`, pulling from the same `<meta>` tags the json2html template emits. Whether this file alone is sufficient for a DA-sourced project (vs. the GDrive/SharePoint-oriented Index Admin Tool + `raw_index` sheet flow described in aem.live's indexing docs) hasn't been verified yet.
+
 ## Tools
 
-`tools/generate-products.js` generates seeded, repeatable sample product CSV data (used for prototyping product-detail-style content): `node tools/generate-products.js [rowCount] [outputPath] [seed]`.
+`tools/generate-products.js` generates seeded, repeatable sample product CSV data (used for prototyping product-detail-style content) at `sample-data/products.csv`, including a `sku`-seeded Picsum `image_url` column: `node tools/generate-products.js [rowCount] [outputPath] [seed]`.
+
+**Important:** this CSV is a local fixture only. The live `/products/data.json` is a DA-authored sheet — regenerating the CSV does **not** update it. Changing row count or columns requires re-importing/republishing the sheet in DA separately.
