@@ -6,6 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="{{name}}">
   <meta name="description" content="{{name}} — {{category}}">
+  <meta name="product-id" content="{{product_id}}">
+  <meta name="sku" content="{{sku}}">
+  <meta name="category" content="{{category}}">
+  <meta name="price" content="{{price}}">
+  <meta name="currency" content="{{currency}}">
+  <meta name="color" content="{{color}}">
+  <meta name="rating" content="{{rating}}">
+  <meta name="stock-quantity" content="{{stock_quantity}}">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "productID": "{{product_id}}",
+      "sku": "{{sku}}",
+      "name": "{{name}}",
+      "category": "{{category}}",
+      "color": "{{color}}",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{rating}}"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "{{price}}",
+        "priceCurrency": "{{currency}}",
+        "inventoryLevel": {
+          "@type": "QuantitativeValue",
+          "value": "{{stock_quantity}}"
+        }
+      }
+    }
+  </script>
   <script src="/scripts/aem.js" type="module"></script>
   <script src="/scripts/scripts.js" type="module"></script>
   <link rel="stylesheet" href="/styles/styles.css"/>
@@ -15,13 +47,23 @@
   <header></header>
   <main>
     <div>
-      <h1>{{name}}</h1>
-      <p>{{category}}</p>
-      <p>{{price}} {{currency}}</p>
-      <p>SKU: {{sku}}</p>
-      <p>Color: {{color}}</p>
-      <p>Rating: {{rating}} / 5</p>
-      <p>{{stock_quantity}} in stock</p>
+      <div class="product-details">
+        <div>
+          <div>
+            <h1>{{name}}</h1>
+          </div>
+          <div>{{category}}</div>
+        </div>
+        <div>
+          <div>{{price}} {{currency}}</div>
+          <div>{{color}}</div>
+          <div>{{rating}}</div>
+          <div>{{stock_quantity}}</div>
+        </div>
+        <div>
+          <div>{{sku}}</div>
+        </div>
+      </div>
     </div>
   </main>
   <footer></footer>
