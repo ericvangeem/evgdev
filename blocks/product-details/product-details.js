@@ -1,10 +1,7 @@
 export default function decorate(block) {
-  const [imageRow, identityRow, specRow, skuRow] = [...block.children];
+  const [identityRow, imageRow, specRow, skuRow] = [...block.children];
 
   block.classList.add('product-details-card');
-
-  const [imageCell] = imageRow ? imageRow.children : [];
-  if (imageCell) imageCell.classList.add('product-details-image');
 
   const [titleCell, categoryCell] = identityRow ? identityRow.children : [];
   if (titleCell) titleCell.classList.add('product-details-title');
@@ -12,6 +9,9 @@ export default function decorate(block) {
     categoryCell.textContent = categoryCell.textContent.trim();
     categoryCell.classList.add('product-details-category');
   }
+
+  const [imageCell] = imageRow ? imageRow.children : [];
+  if (imageCell) imageCell.classList.add('product-details-image');
 
   const [priceCell, colorCell, ratingCell, stockCell] = specRow ? specRow.children : [];
 
