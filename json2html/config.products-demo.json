@@ -1,9 +1,0 @@
-[
-  {
-    "path": "/products/product-detail/",
-    "endpoint": "https://products-demo--evgdev--ericvangeem.aem.live/products/data.json",
-    "arrayKey": "data",
-    "pathKey": "path",
-    "template": "/json2html/product-detail.html"
-  }
-]
