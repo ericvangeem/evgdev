@@ -1,55 +1,110 @@
-.product-details {
+.product-details-card {
   max-width: 640px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  background-color: var(--light-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
-.product-details > div {
+.product-details-card > div {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  align-items: baseline;
-  margin-bottom: 16px;
+  align-items: center;
+  gap: 12px;
 }
 
-.product-details h1 {
+.product-details-card > div + div {
+  margin-top: 24px;
+}
+
+.product-details-title {
+  margin: 0;
+}
+
+.product-details-title h1 {
   margin: 0;
 }
 
 .product-details-category {
+  padding: 4px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-size: var(--body-font-size-xs);
+}
+
+.product-details-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background-color: rgb(255 255 255 / 6%);
   font-size: var(--body-font-size-s);
+}
+
+.product-details-label {
+  color: var(--text-secondary);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .product-details-price {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
+  background-color: transparent;
+  padding: 0;
 }
 
-.product-details-color::before {
-  content: 'Color: ';
-  color: var(--text-secondary);
-}
-
-.product-details-rating {
+.product-details-stars {
   color: #e0a30e;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
+}
+
+.product-details-value {
+  font-weight: 600;
 }
 
 .product-details-stock {
   font-weight: 600;
 }
 
+.product-details-stock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .product-details-stock.in-stock {
   color: #1c7c34;
+}
+
+.product-details-stock.in-stock .product-details-stock-dot {
+  background-color: #1c7c34;
 }
 
 .product-details-stock.out-of-stock {
   color: #b3261e;
 }
 
+.product-details-stock.out-of-stock .product-details-stock-dot {
+  background-color: #b3261e;
+}
+
 .product-details-sku {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--text-secondary);
   font-size: var(--body-font-size-xs);
+}
+
+.product-details-sku .product-details-value {
   font-family: monospace;
+  font-weight: 400;
 }

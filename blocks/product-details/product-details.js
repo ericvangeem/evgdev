@@ -1,8 +1,14 @@
 export default function decorate(block) {
   const [identityRow, specRow, skuRow] = [...block.children];
 
-  const [, categoryCell] = identityRow ? identityRow.children : [];
-  if (categoryCell) categoryCell.classList.add('product-details-category');
+  block.classList.add('product-details-card');
+
+  const [titleCell, categoryCell] = identityRow ? identityRow.children : [];
+  if (titleCell) titleCell.classList.add('product-details-title');
+  if (categoryCell) {
+    categoryCell.textContent = categoryCell.textContent.trim();
+    categoryCell.classList.add('product-details-category');
+  }
 
   const [priceCell, colorCell, ratingCell, stockCell] = specRow ? specRow.children : [];
 
@@ -15,27 +21,36 @@ export default function decorate(block) {
         currency: currency || 'USD',
       }).format(price);
     }
-    priceCell.classList.add('product-details-price');
+    priceCell.classList.add('product-details-stat', 'product-details-price');
   }
 
-  if (colorCell) colorCell.classList.add('product-details-color');
+  if (colorCell) {
+    const color = colorCell.textContent.trim();
+    colorCell.innerHTML = `<span class="product-details-label">Color</span><span class="product-details-value">${color}</span>`;
+    colorCell.classList.add('product-details-stat', 'product-details-color');
+  }
 
   if (ratingCell) {
     const rating = parseFloat(ratingCell.textContent);
     if (!Number.isNaN(rating)) {
       const fullStars = Math.round(rating);
-      ratingCell.textContent = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
-      ratingCell.title = `${rating} / 5`;
+      const stars = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+      ratingCell.innerHTML = `<span class="product-details-stars">${stars}</span><span class="product-details-value">${rating}</span>`;
     }
-    ratingCell.classList.add('product-details-rating');
+    ratingCell.classList.add('product-details-stat', 'product-details-rating');
   }
 
   if (stockCell) {
     const quantity = parseInt(stockCell.textContent, 10) || 0;
-    stockCell.textContent = quantity > 0 ? `${quantity} in stock` : 'Out of stock';
-    stockCell.classList.add('product-details-stock', quantity > 0 ? 'in-stock' : 'out-of-stock');
+    const inStock = quantity > 0;
+    stockCell.innerHTML = `<span class="product-details-stock-dot"></span>${inStock ? `${quantity} in stock` : 'Out of stock'}`;
+    stockCell.classList.add('product-details-stat', 'product-details-stock', inStock ? 'in-stock' : 'out-of-stock');
   }
 
   const [skuCell] = skuRow ? skuRow.children : [];
-  if (skuCell) skuCell.classList.add('product-details-sku');
+  if (skuCell) {
+    const sku = skuCell.textContent.trim();
+    skuCell.innerHTML = `<span class="product-details-label">SKU</span><span class="product-details-value">${sku}</span>`;
+    skuCell.classList.add('product-details-sku');
+  }
 }
