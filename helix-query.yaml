@@ -49,5 +49,6 @@ indices:
         value: |
           attribute(el, 'content')
       lastModified:
+        selectFirst: html
         value: |
           parseTimestamp(headers['last-modified'], 'ddd, DD MMM YYYY HH:mm:ss [GMT]')
